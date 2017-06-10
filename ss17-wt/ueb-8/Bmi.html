@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                var height = $("#in1").val();
+                var weight = $("#in2").val();
+
+                var bmi = (weight) / ((height) * (height));
+                $("#result").text(bmi * 10000);
+                if ($("input[name='xingbie']:checked").val() == "woman") {
+                    $("#result").text(bmi * 10000 - 10);
+                }
+
+            })
+        });
+
+        $(function () {
+            $("input[name='xingbie']").change(function () {
+                    var bmi = $("#result").val();
+                    $("#result").text(bmi);
+                }
+            )
+        })
+
+    </script>
+</head>
+<body>
+<label for="man" name="man">Man</label>
+<input type="radio" name="xingbie" value="man" id="man">
+<label for="woman" name="woman">Woman</label>
+<input type="radio" name="xingbie" value="woman" id="woman"><br>
+
+Your Height: <input id="in1"><br>
+Your weight:<input id="in2"><br>
+<button id="btn1">submit</button>
+<p id="result"></p>
+
+</label></body>
+</html>
